@@ -63,12 +63,12 @@ public class ApplicationTests {
             visResource.deleteVisiteur(v.getId());
 
 	}
-    @Test
-	public void signInTest(){
-       Visiteur v = loginResource.signIn("toto@gmail.com", "123");
-       if(v == null)
-           fail("email ou mot de passe incorrecte");
-    }
+//    @Test
+//	public void signInTest(){
+//       Visiteur v = loginResource.signIn("toto@gmail.com", "123");
+//       if(v == null)
+//           fail("email ou mot de passe incorrecte");
+//    }
 
 
 }

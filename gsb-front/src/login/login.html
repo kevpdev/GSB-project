@@ -1,31 +1,46 @@
-<div class="row">
-        <fieldset>
+
+
+    <div class="row col-md-4 col-sm-6 col-xs-12">
+</div>
+<div class="row ">
+    	<div class="col-md-4 col-sm-6 col-xs-12">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Authentifiez-vous</h3>
+			 	</div>
+			  	<div class="panel-body">
+			    	<fieldset>
         <legend>Se connecter</legend>
-            <form action="" name="loginForm" ng-submit="">
+            <form name="loginForm" class="form-horizontal" ng-submit="$ctrl.authForm(loginForm, $ctrl.user)">
+                {{$ctrl.user}}
                 <div class="form-group">
-                   <label class="col-md-4" for="login">Nom d'utilisateur</label>
-                   <div class="col-md-4">
-                       <input type="text" value="" placeholder="nom d'utilisateur" class="form-control">
+                   <label class="col-md-6 control-label" for="login">Nom d'utilisateur</label>
+                   <div class="col-md-6">
+                       <input type="text" value="d" name="login" placeholder="nom d'utilisateur" class="form-control" ng-model="$ctrl.user.login" required>
                    </div>
                     
                 </div>
                 <div class="form-group">
-                   <label class="col-md-4" for="mdp">Mot de passe</label>
-                    <div class="col-md-4">
-                        <input type="password" value="" placeholder="mot de passe" class="form-control">
+                   <label class="col-md-6 control-label" for="mdp">Mot de passe</label>
+                    <div class="col-md-6">
+                        <input type="password" name="mdp" value="dd" placeholder="mot de passe" class="form-control" ng-model="$ctrl.user.mdp" required>
                     </div>
                     
                 </div>
+                  <label class="col-md-4 control-label" for="singlebutton"></label>
                 <div class="form-group">
                     <div class="col-md-4">
-                         <input type="submit" value="valider" class="btn btn-primary">
+                         <input type="submit" value="valider" class="btn btn-primary" ng-click="$ctrl.authForm(loginForm, $ctrl.user)"> 
+                         <!--<p ng-show="loginForm.login.$invalid && !loginForm.mdp.$invalid" class="help-block">nom utilisateur ou mot de passe incorrecte.</p>-->
                     </div>
                    
                 </div>
                 
             </form>
         </fieldset>
-    </div>
-    
+			    </div>
+			</div>
+		</div>
+	</div>
     
     
