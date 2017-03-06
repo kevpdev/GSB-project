@@ -1,16 +1,14 @@
-const visiteurs ={
-    "email" : "d",
-    "motDePasse" : "hello"
-};
+
 class LoginController{
-    constructor(LoginService){
-        console.log('je suis ici')
+    constructor(LoginService, $location){
+        console.log($location)
         this.LoginService = LoginService;
-        this.test = 'test';
+        this.$location = $location;
 
     }
 
     authForm(form, user){
+        console.log(user)
         if(form.$invalid){
             console.log('erreur')
             return;
@@ -18,9 +16,15 @@ class LoginController{
 
      this.LoginService.siginIn(user)
      .then(user => {
-           if(!user)
-           this.message ="utilisateur ou mot de passe incorrecte";
-          console.log('----> erreur')
+         console.log(user)
+           if(!user){
+            this.message ="utilisateur ou mot de passe incorrecte";
+            console.log('----> erreur')
+           }else{
+               console.log('connecté')
+               this.$location.path('/accueil')
+           }
+
          
      })
      

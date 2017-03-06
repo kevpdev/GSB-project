@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Nivhell on 27/02/2017.
  */
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("*")
 @RequestMapping("/login")
 @RestController
 public class LoginResource {
@@ -18,10 +18,9 @@ public class LoginResource {
     private VisiteurRepository visiteurDao;
 
     @RequestMapping(method = RequestMethod.POST)
-
-    public Visiteur signIn(@RequestBody Visiteur visiteur){
+    public Visiteur signIn(@RequestBody  Visiteur visiteur){
         List<Visiteur> visiteurs = visiteurDao.findByEmailAndMotDePasse(visiteur.getEmail(), visiteur.getMotDePasse());
-        if(visiteurs.size()>1){
+        if(visiteurs.size()>0){
             Visiteur v = visiteurs.get(0);
             return v != null ? v : null;
         }

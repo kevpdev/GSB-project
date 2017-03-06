@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Nivhell on 24/02/2017.
  */
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("*")
 @RequestMapping("/visiteurs")
 @RestController
 public class VisiteurResource {
@@ -31,9 +31,8 @@ public class VisiteurResource {
         vis.setMotDePasse("123");
         visiteurDao.save(vis);
     }
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public void saveVisiteur(Visiteur visiteur) {
+    @RequestMapping(method = RequestMethod.POST)
+    public void saveVisiteur(@RequestBody  Visiteur visiteur) {
         visiteurDao.save(visiteur);
     }
 
@@ -43,7 +42,6 @@ public class VisiteurResource {
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    @ResponseBody
     public void updateVisiteur (Visiteur visiteur, int id){
       Visiteur v = visiteurDao.findOne(id);
       if(v!= null){
@@ -54,7 +52,6 @@ public class VisiteurResource {
     }
 
     @RequestMapping(value="visiteurs/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
     public void deleteVisiteur(@PathVariable int id){
         Visiteur v = visiteurDao.findOne(id);
         if(v != null){
