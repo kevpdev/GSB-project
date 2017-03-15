@@ -22,7 +22,7 @@ class LoginController{
             console.log('----> erreur')
            }else{
                console.log('connecté')
-               this.$location.path('/accueil')
+               this.$location.path('/cr')
            }
 
          

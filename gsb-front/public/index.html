@@ -3,12 +3,18 @@
     <head>
         <title>Gsb</title>
         <script src="app.bundle.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <base href="/">
     </head>
     <body ng-app="app">
+    <menu></menu>
         <div class="container">
+     
             <h1>Gestion des comptes-rendus</h1>
-            <login></login>
+
+
+            <div ng-view>
         </div>
                 
     </body>

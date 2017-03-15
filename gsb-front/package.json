@@ -8,6 +8,8 @@
     "build": "webpack"
   },
   "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
     "angular-ui-bootstrap": "^2.4.0"
   },
   "devDependencies": {
