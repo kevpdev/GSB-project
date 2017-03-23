@@ -1,7 +1,9 @@
 class MenuController{
-    constructor(){
-
+    constructor($cookieStore){
+       this.$cookieStore = $cookieStore;
+       console.log(this.$cookieStore)
     }
+    
 }
 
 export const Menu = {

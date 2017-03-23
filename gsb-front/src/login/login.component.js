@@ -1,9 +1,10 @@
 
 class LoginController{
-    constructor(LoginService, $location){
+    constructor(LoginService, $location, $cookieStore){
         console.log($location)
         this.LoginService = LoginService;
         this.$location = $location;
+        this.$cookieStore = $cookieStore;
 
     }
 
@@ -22,6 +23,9 @@ class LoginController{
             console.log('----> erreur')
            }else{
                console.log('connecté')
+               let userCookie = { id : user.id, nom : user.nom, prenom : user.prenom}
+               this.$cookieStore.put('user', userCookie)
+               console.log('cookies', this.$cookieStore.get('user'))
                this.$location.path('/cr')
            }
 
