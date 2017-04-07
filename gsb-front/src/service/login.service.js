@@ -4,6 +4,7 @@ export class LoginService{
     constructor($http){
         console.log($http)
         this.$http = $http;
+        this.connected = false;
     }
   
     siginIn(user){
@@ -15,7 +16,8 @@ export class LoginService{
               return null;
           }else{
               const userlog = response.data;
-              console.log('connecté');
+              this.connected = true;
+              console.log('succes log',this)
               return userlog;
               
           }
