@@ -5,10 +5,11 @@ import uiBoostrap from 'angular-ui-bootstrap'
 import login from './login'
 import menu from './menu'
 import main from './main'
+import compteRendu from './cr'
 import {LoginService} from './service/login.service.js'
 import {MenuService} from './service/menu.service.js'
 
-angular.module('app', [ngRoute, uiBoostrap, login, menu, main, ngCookies])
+angular.module('app', [ngRoute, uiBoostrap, login, menu, main, compteRendu, ngCookies])
     .service('LoginService', LoginService)
     .service('MenuService', MenuService)
     .config(function($routeProvider, $locationProvider) {
@@ -18,7 +19,7 @@ angular.module('app', [ngRoute, uiBoostrap, login, menu, main, ngCookies])
             template: '<main></main>'
         })
          .when('/cr', {
-            templateUrl: 'accueil.html'
+            template: '<cr></cr>'
         })
         .otherwise('/');
 

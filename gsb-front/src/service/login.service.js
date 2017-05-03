@@ -1,9 +1,10 @@
-const api ='http://localhost:3000/login';
+const api ='http://localhost:3001/login';
 
 export class LoginService{
-    constructor($http){
+    constructor($http, $cookies){
         console.log($http)
         this.$http = $http;
+         this.$cookies = $cookies;
         this.connected = false;
     }
   
@@ -22,5 +23,12 @@ export class LoginService{
               
           }
         } )
+    }
+
+    checkIslog(){
+        if(this.$cookies.get('user')){
+           return true;
+        }
+        return false;
     }
 }

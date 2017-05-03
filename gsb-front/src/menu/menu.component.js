@@ -5,9 +5,13 @@ class MenuController{
         this.$rootScope= $rootScope;
         this.$rootScope.$on("status", (event, isAuth) => {
         this.isAuth = isAuth;
+        console.log('je suis ici')
         this.currentUser = this.$cookies.get('user');
-        console.log('rootscope con', this.isAuth)
-        })
+        console.log('rootscope con', this.isAuth);
+
+    })
+    
+  
     }
 
     logout(){
