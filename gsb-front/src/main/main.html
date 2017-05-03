@@ -1,14 +1,17 @@
+<header>
+    <menu></menu>
+</header>
 
-<menu></menu>
         <div class="container">
             <h1>Gestion des comptes-rendus</h1>
+
+                <div ng-show="$ctrl.isAuth === false">
+                    <login></login>
+                </div>
+                <div ng-show="$ctrl.isAuth">
+                    <cr></cr>
+                </div>
         </div>
-<div class="container">
+
     
-    <div ng-show="$ctrl.isAuth === false">
-        <login></login>
-    </div>
-    <div ng-show="$ctrl.isAuth">
-        <cr></cr>
-    </div>
-</div>
+

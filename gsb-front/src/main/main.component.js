@@ -3,12 +3,13 @@ class MainController{
     constructor($cookies){
         this.$cookies = $cookies;
     
-      //  this.checkIsAuth();
-    }
-    $onInit(){
-            this.isAuth = false;
+      this.isAuth = false;
          this.checkIsAuth();
     }
+    // $onInit(){
+    //         this.isAuth = false;
+    //      this.checkIsAuth();
+    // }
 
      checkIsAuth(){
            console.log('auth chek', this.isAuth)

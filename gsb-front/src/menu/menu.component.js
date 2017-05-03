@@ -1,16 +1,16 @@
 class MenuController{
     constructor($cookies, $location, $rootScope){
+        console.log('menucontroller')
        this.$cookies = $cookies;
        this.$location = $location;
-        this.$rootScope= $rootScope;
-        this.$rootScope.$on("status", (event, isAuth) => {
-        this.isAuth = isAuth;
-        console.log('je suis ici')
-        this.currentUser = this.$cookies.get('user');
-        console.log('rootscope con', this.isAuth);
-
-    })
-    
+    //     this.$rootScope= $rootScope;
+    //     this.$rootScope.$on("status", (event, isAuth) => {
+    //     console.log('rootscope con', isAuth);  
+    //     this.isAuth = isAuth;
+    //     this.currentUser = this.$cookies.get('user');
+    // })
+    this.checkIfLogin();
+      console.log('rootscope con', this.isAuth); 
   
     }
 
@@ -24,7 +24,7 @@ class MenuController{
     }
 
      checkIfLogin(){
-         if(currentUser)
+         if(this.$cookies.get('user'))
               this.isAuth = true;
     }
    
