@@ -3,7 +3,7 @@ package fr.gsb.model;
 public enum Motif {
 	
 	periodicite,
-	ralance,
+	relance,
 	actualisation,
 	autres
 

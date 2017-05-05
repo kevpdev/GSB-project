@@ -1,12 +1,6 @@
 package fr.gsb.spring.repository;
-
-import org.hibernate.sql.Select;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import fr.gsb.model.Visiteur;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-
 import java.util.List;
 
 public interface VisiteurRepository extends  JpaRepository<Visiteur, Integer> {
