@@ -8,10 +8,12 @@ import main from './main'
 import compteRendu from './cr'
 import {LoginService} from './service/login.service.js'
 import {MenuService} from './service/menu.service.js'
+import {CrenduService} from './service/crendu.service.js'
 
 angular.module('app', [ngRoute, uiBoostrap, login, menu, main, compteRendu, ngCookies])
     .service('LoginService', LoginService)
     .service('MenuService', MenuService)
+    .service('CrenduService', CrenduService)
     .config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider

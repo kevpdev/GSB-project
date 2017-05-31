@@ -3,9 +3,6 @@ package fr.gsb.spring.resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,14 +27,18 @@ public class CompteRenduResource {
 	
 	@PostConstruct
     public void init(){
-		CompteRendu crend = new CompteRendu();
+		
 		List<Medicament> medocs = new ArrayList<Medicament>();
 		medocs.add(new Medicament("Suicidine", "pour les suicidaire"));
-		crend.setDate(new Date());
-		crend.setBilan("RAS");
-		crend.setMotif(Motif.periodicite);
-		crend.setMedicaments(medocs);
+		medocs.add(new Medicament("Doliprane", "douleur et fievre"));
+		List<Medicament> medocsb = new ArrayList<Medicament>();
+		medocsb.add(new Medicament("Mythoprane", "douleur et mensonge"));
+		medocsb.add(new Medicament("Jalouxine", "raleur et anvieux"));
+		
+		CompteRendu crend = new CompteRendu(new Date(), "RAS", Motif.periodicite, medocs);
+		CompteRendu crendb = new CompteRendu(new Date(), "blablabla", Motif.relance, medocsb);
 		cRenduDao.save(crend);
+		cRenduDao.save(crendb);
     }
 	
 	@RequestMapping(method = RequestMethod.POST)

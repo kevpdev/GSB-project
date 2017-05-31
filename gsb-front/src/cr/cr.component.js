@@ -1,7 +1,11 @@
 class CompteRendu{
 
-    constructor(){
-        console.log('ici les cr')
+    constructor(CrenduService){
+        this.CrenduService = CrenduService.findAll()
+        .then(crendus => {
+            this.crendus = crendus;
+            console.log('liste crendus', this.crendus)
+        })
     }
 
 }

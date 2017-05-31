@@ -1,6 +1,37 @@
 <header>
+
     <menu></menu>
+
+    <div class="container">
+        <h1>Mes comptes rendus médicaux</h1> 
+    </div>
+        
 </header>
-<div class="container">
-    <h1>Bienvenue^^^^</h1> 
+<div class="container">   
+
+    <a href="#" class="btn btn-success">Ajouter</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bilan</th>
+                <th>Date</th>
+                <th>Motif</th>
+                <th>Médicament</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr ng-repeat="crendu in $ctrl.crendus">
+                <td>{{crendu.id}}</td>
+                <td>{{crendu.bilan}}</td>
+                <td>{{crendu.date | date:'dd MMM yyyy' }}</td>
+                <td>{{crendu.motif}}</td>
+                <td><span ng-repeat="med in crendu.medicaments">{{med.name}}{{$last ? '' : ', '}}</span></td>
+                <td><a href="#" class="btn btn-danger">Supprimer</a></td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>
