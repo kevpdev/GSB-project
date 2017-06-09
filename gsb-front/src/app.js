@@ -23,6 +23,12 @@ angular.module('app', [ngRoute, uiBoostrap, login, menu, main, compteRendu, ngCo
          .when('/cr', {
             template: '<cr></cr>'
         })
+        .when('/cr/add',{
+            template:'<crform></crform>'
+        })
+        .when('/cr/edit/:id',{
+            template:'Salut'
+        })
         .otherwise('/');
 
 
