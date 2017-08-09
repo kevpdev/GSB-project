@@ -9,4 +9,11 @@ export class CrenduService{
         return this.$http.get(api)
         .then((response)=> response.data)
     }
+
+    saveCrendu(crendu){
+        return this.$http.post(api, crendu)
+        .then((response) => response.data)
+    }
+
+
 }

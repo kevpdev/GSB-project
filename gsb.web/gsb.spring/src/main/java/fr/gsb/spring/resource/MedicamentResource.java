@@ -26,8 +26,8 @@ public class MedicamentResource {
 	
 	@PostConstruct
     public void init(){
-		Medicament m = new Medicament("Jalouxine", "pour les haineux et les envieux");
-		Medicament m2 = new Medicament("Mythoprane", "douleur et mensonge");
+		Medicament m = new Medicament("Ragix", "pour les foutix et les rageux");
+		Medicament m2 = new Medicament("Noobiprane", "pour les eternel noob");
         medicamentDao.save(m);
         medicamentDao.save(m2);
     }
@@ -42,7 +42,7 @@ public class MedicamentResource {
 	        return medicamentDao.findAll();
 	    }
 
-	    @RequestMapping(method = RequestMethod.PUT)
+	    @RequestMapping(method = RequestMethod.PUT)	
 	    public void updateMedic (Medicament medic, int id){
 	    Medicament med = medicamentDao.findOne(id);
 	      if(med!= null){

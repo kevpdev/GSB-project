@@ -9,11 +9,13 @@ import compteRendu from './cr'
 import {LoginService} from './service/login.service.js'
 import {MenuService} from './service/menu.service.js'
 import {CrenduService} from './service/crendu.service.js'
+import {MedocService} from './service/medoc.service.js'
 
 angular.module('app', [ngRoute, uiBoostrap, login, menu, main, compteRendu, ngCookies])
     .service('LoginService', LoginService)
     .service('MenuService', MenuService)
     .service('CrenduService', CrenduService)
+    .service('MedocService', MedocService)
     .config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
@@ -23,9 +25,9 @@ angular.module('app', [ngRoute, uiBoostrap, login, menu, main, compteRendu, ngCo
          .when('/cr', {
             template: '<cr></cr>'
         })
-        .when('/cr/add',{
-            template:'<crform></crform>'
-        })
+        // .when('/cr/add',{
+        //     template:'<crform></crform>'
+        // })
         .when('/cr/edit/:id',{
             template:'Salut'
         })

@@ -6,6 +6,15 @@ class CompteRendu{
             this.crendus = crendus;
             console.log('liste crendus', this.crendus)
         })
+        this.showAddForm = false;
+        console.log(this.showAddForm)
+    }
+
+    showAddFormul(){
+        this.showAddForm = true;
+    }
+    hideAddForm(){
+        this.showAddForm = false;
     }
 
 }

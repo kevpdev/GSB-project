@@ -1,6 +1,6 @@
 
 <div class="container">
-    <form class="form-horizontal">
+    <form class="form-horizontal" name="addCrForm" ng-submit="$ctrl.saveCr(addCrForm, $ctrl.crendu)">
 <fieldset>
 
 <!-- Form Name -->
@@ -10,16 +10,16 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="date">Date</label>  
   <div class="col-md-4">
-  <input id="date" name="date" type="text" placeholder="date de visite" class="form-control input-md" required="">
+  <input id="date" name="date" type="date" placeholder="date de visite" class="form-control input-md" required="" ng-model="$ctrl.crendu.date">
     
   </div>
 </div>
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="bilan">Blian</label>
+  <label class="col-md-4 control-label" for="bilan">Bilan</label>
   <div class="col-md-4">                     
-    <textarea class="form-control" id="bilan" name="bilan">default text</textarea>
+    <textarea class="form-control" id="bilan" name="bilan" ng-model="$ctrl.crendu.bilan">RAS</textarea>
   </div>
 </div>
 
@@ -27,9 +27,13 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="motif">Motif</label>
   <div class="col-md-4">
-    <select id="motif" name="motif" class="form-control">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
+    <select id="motif" name="motif" class="form-control" ng-model="$ctrl.crendu.motif">
+       <option value="" selected>choisir un motif</option>
+      <option value="periodicite" selected ="selected">periodicite</option>
+      <option value="relance">relance</option>
+      <option value="actualisation">actualisation</option>
+      <option value="autres">autres</option>
+
     </select>
   </div>
 </div>
@@ -38,11 +42,16 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="medicament">Médicament(s)</label>
   <div class="col-md-4">
-    <select id="medicament" name="medicament" class="form-control" multiple="multiple">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
+    <select id="medicament" name="medicament" class="form-control" multiple="multiple" ng-model="$ctrl.crendu.medicaments" ng-options="med.name for med in $ctrl.medicaments track by med">
+      <option value="">choisir un médiciament</option>
     </select>
   </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="button"></label>
+   <div class="col-md-4">
+      <input class="form-control btn btn-primary" type="submit" value="Valider">
+   </div>  
 </div>
 
 </fieldset>

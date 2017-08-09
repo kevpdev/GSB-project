@@ -8,9 +8,14 @@
         
 </header>
 <div class="container">   
+    <a href="" class="btn btn-success" ng-click="$ctrl.showAddFormul()">Ajouter</a>
+    <a href="" class="btn btn-primary" ng-click="$ctrl.hideAddForm()">Retour</a>
+    <div ng-if="$ctrl.showAddForm">
+        <crform></crform>
 
-    <a href="/cr/add" class="btn btn-success">Ajouter</a>
-    
+    </div>
+      
+
     <table class="table">
         <thead>
             <tr>
