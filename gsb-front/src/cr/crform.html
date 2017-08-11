@@ -42,7 +42,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="medicament">Médicament(s)</label>
   <div class="col-md-4">
-    <select id="medicament" name="medicament" class="form-control" multiple="multiple" ng-model="$ctrl.crendu.medicaments" ng-options="med.name for med in $ctrl.medicaments track by med">
+    <select id="medicament" name="medicament" class="form-control" multiple="multiple" ng-model="$ctrl.crendu.medicaments" ng-options="med.name for med in $ctrl.medicaments track by med.id">
       <option value="">choisir un médiciament</option>
     </select>
   </div>

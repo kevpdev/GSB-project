@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -23,6 +24,7 @@ public class CompteRendu {
 	@Enumerated
 	public Motif motif;
 	@OneToMany(orphanRemoval = true, cascade = CascadeType.PERSIST)
+	@JoinColumn(name="medicaments")
 	public List<Medicament> medicaments;
 	
 	public CompteRendu(){

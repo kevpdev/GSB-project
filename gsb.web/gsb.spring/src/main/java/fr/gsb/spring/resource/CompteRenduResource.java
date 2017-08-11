@@ -3,8 +3,10 @@ package fr.gsb.spring.resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +26,7 @@ public class CompteRenduResource {
 	
 	@Autowired
 	private CompteRenduRepository cRenduDao;
+	private static Logger LOG = Logger.getLogger(CompteRenduResource.class);
 	
 	@PostConstruct
     public void init(){
@@ -37,13 +40,15 @@ public class CompteRenduResource {
 		
 		CompteRendu crend = new CompteRendu(new Date(), "RAS", Motif.periodicite, medocs);
 		CompteRendu crendb = new CompteRendu(new Date(), "blablabla", Motif.relance, medocsb);
+		LOG.info("crendu init : "+crend);
 		cRenduDao.save(crend);
 		cRenduDao.save(crendb);
     }
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public void saveCRendu(@RequestBody CompteRendu cRendu){
-		cRenduDao.save(cRendu);
+		LOG.info("objet crendu : "+cRendu);
+		cRenduDao.saveAndFlush(cRendu);
 	}
 	
 	 @RequestMapping(method = RequestMethod.GET)

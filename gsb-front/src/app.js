@@ -5,6 +5,7 @@ import uiBoostrap from 'angular-ui-bootstrap'
 import login from './login'
 import menu from './menu'
 import main from './main'
+import moment from 'moment'
 import compteRendu from './cr'
 import {LoginService} from './service/login.service.js'
 import {MenuService} from './service/menu.service.js'
@@ -36,5 +37,10 @@ angular.module('app', [ngRoute, uiBoostrap, login, menu, main, compteRendu, ngCo
 
 
 })
+    .constant('moment', require('moment-timezone'))
     .run(function(){
+     
+       var moment = require('moment');
+      
+       console.log( moment().format())
 })
