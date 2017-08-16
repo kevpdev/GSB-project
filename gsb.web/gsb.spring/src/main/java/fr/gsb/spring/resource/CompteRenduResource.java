@@ -2,7 +2,9 @@ package fr.gsb.spring.resource;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 
@@ -31,18 +33,22 @@ public class CompteRenduResource {
 	@PostConstruct
     public void init(){
 		
-		List<Medicament> medocs = new ArrayList<Medicament>();
-		medocs.add(new Medicament("Suicidine", "pour les suicidaire"));
-		medocs.add(new Medicament("Doliprane", "douleur et fievre"));
-		List<Medicament> medocsb = new ArrayList<Medicament>();
-		medocsb.add(new Medicament("Mythoprane", "douleur et mensonge"));
-		medocsb.add(new Medicament("Jalouxine", "raleur et anvieux"));
 		
-		CompteRendu crend = new CompteRendu(new Date(), "RAS", Motif.periodicite, medocs);
-		CompteRendu crendb = new CompteRendu(new Date(), "blablabla", Motif.relance, medocsb);
-		LOG.info("crendu init : "+crend);
-		cRenduDao.save(crend);
-		cRenduDao.save(crendb);
+//		Medicament m1 = new Medicament("Suicidine", "pour les suicidaire");
+//		Medicament m2 = new Medicament("Doliprane", "douleur et fievre");
+//		Medicament m4 = new Medicament("Mythoprane", "douleur et mensonge");
+//		Medicament m3 = new Medicament("Jalouxine", "raleur et anvieux");	
+//		Set<Medicament> medocs = new HashSet<Medicament>();
+//		Set<Medicament> medocsb = new HashSet<Medicament>();
+//		medocs.add(m1);
+//		medocs.add(m2);
+//		medocsb.add(m3);
+//		medocsb.add(m4);		
+//		CompteRendu crend = new CompteRendu(new Date(), "RAS", Motif.periodicite, medocs);
+//		CompteRendu crendb = new CompteRendu(new Date(), "blablabla", Motif.relance, medocsb);
+//		LOG.info("crendu init : "+crend);
+//		cRenduDao.save(crend);
+//		cRenduDao.save(crendb);
     }
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -52,8 +58,9 @@ public class CompteRenduResource {
 	}
 	
 	 @RequestMapping(method = RequestMethod.GET)
-	    public List<CompteRendu> findAllCRendu(){
-	        return cRenduDao.findAll();
+	    public Set<CompteRendu> findAllCRendu(){
+		 Set setCr = new HashSet<CompteRendu>(cRenduDao.findAll());
+	        return setCr;
 	    }
 
 	    @RequestMapping(method = RequestMethod.PUT)

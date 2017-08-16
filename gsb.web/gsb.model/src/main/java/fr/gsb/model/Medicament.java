@@ -1,9 +1,13 @@
 package fr.gsb.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Medicament {
@@ -12,6 +16,9 @@ public class Medicament {
 	public int id;
 	public String name;
 	public String description;
+	@ManyToOne
+	@JoinColumn(name = "id_compterendu")
+	public CompteRendu compterendu;
 	
 	public Medicament(){
 		
@@ -48,6 +55,16 @@ public class Medicament {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	
+
+	public CompteRendu getCompterendu() {
+		return compterendu;
+	}
+
+	public void setCompterendu(CompteRendu compterendu) {
+		this.compterendu = compterendu;
 	}
 
 	@Override

@@ -4,7 +4,9 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import org.junit.Test;
@@ -31,7 +33,7 @@ public class CompteRenduTest {
 	@Test
 	public void testFindAllCrendu() {
 		//fail("Not yet implemented");
-		List<CompteRendu> crendus = cRenduResource.findAllCRendu();
+		Set<CompteRendu> crendus = cRenduResource.findAllCRendu();
 		LOG.info("LISTE DES compte rendus : "+crendus.size());		
 	}
 	
@@ -58,7 +60,7 @@ public class CompteRenduTest {
 	}
 	
 	public CompteRendu getCr(){
-		List<Medicament> meds = new ArrayList<Medicament>();
+		Set<Medicament> meds = new HashSet<Medicament>();
 		meds.add(new Medicament("Mythalgan", "douleur et mensonge"));
 		CompteRendu cr = new CompteRendu(new Date(), "ras", Motif.periodicite, meds);
 		return cr;

@@ -2,11 +2,12 @@ const moment = require('moment');
 
 class CompteRenduForm{
 
-    constructor(MedocService, CrenduService){
+    constructor(MedocService, CrenduService, $location){
         this.CrenduService = CrenduService;
         this.MedocService = MedocService.findAllMedoc()
         .then(medicaments => {
         this.medicaments = medicaments;
+        this.$location = $location;
         console.log('liste medoc', this.medicaments)
         })
 
@@ -23,7 +24,8 @@ class CompteRenduForm{
         console.log('date final', this.crendu.date)
        console.log('crendu', this.crendu)
        this.CrenduService.saveCrendu(this.crendu)
-       .then(() => this.$location.path('/cr'));
+       .then(() =>  this.$location.path('/cr'));
+                    
     }
 }
 

@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,27 +22,29 @@ public class CompteRendu {
 	public int id;
 	public Date date;
 	public String bilan;
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	public Motif motif;
-	@OneToMany(orphanRemoval = true, cascade = CascadeType.PERSIST)
-	@JoinColumn(name="medicaments")
-	public List<Medicament> medicaments;
+	@OneToMany(mappedBy="compterendu")
+	public Set<Medicament> medicaments;
 	
 	public CompteRendu(){
 		
 	}
-	
-
-	public CompteRendu(Date date, String bilan, Motif motif, List<Medicament> medicaments) {
+	public CompteRendu(Date date, String bilan, Motif motif) {
 		super();
 		this.date = date;
 		this.bilan = bilan;
 		this.motif = motif;
+	}
+	
+
+	public CompteRendu(Date date, String bilan, Motif motif, Set<Medicament> medicaments) {
+		this(date, bilan, motif);
 		this.medicaments = medicaments;
 	}
 	
 
-	public CompteRendu(int id, Date date, String bilan, Motif motif, List<Medicament> medicaments) {
+	public CompteRendu(int id, Date date, String bilan, Motif motif, Set<Medicament> medicaments) {
 		this(date, bilan, motif, medicaments);
 		this.id = id;
 
@@ -73,10 +76,10 @@ public class CompteRendu {
 	public void setMotif(Motif motif) {
 		this.motif = motif;
 	}
-	public List<Medicament> getMedicaments() {
+	public Set<Medicament> getMedicaments() {
 		return medicaments;
 	}
-	public void setMedicaments(List<Medicament> medicaments) {
+	public void setMedicaments(Set<Medicament> medicaments) {
 		this.medicaments = medicaments;
 	}
 
